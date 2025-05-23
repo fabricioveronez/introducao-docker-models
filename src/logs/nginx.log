@@ -1,0 +1,24 @@
+2025-05-23T13:11:14.499942907Z stdout F /docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
+2025-05-23T13:11:14.499980618Z stdout F /docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
+2025-05-23T13:11:14.50175817Z stdout F /docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
+2025-05-23T13:11:14.508248493Z stdout F 10-listen-on-ipv6-by-default.sh: info: Getting the checksum of /etc/nginx/conf.d/default.conf
+2025-05-23T13:11:14.514338333Z stdout F 10-listen-on-ipv6-by-default.sh: info: Enabled listen on IPv6 in /etc/nginx/conf.d/default.conf
+2025-05-23T13:11:14.514462371Z stdout F /docker-entrypoint.sh: Sourcing /docker-entrypoint.d/15-local-resolvers.envsh
+2025-05-23T13:11:14.514575584Z stdout F /docker-entrypoint.sh: Launching /docker-entrypoint.d/20-envsubst-on-templates.sh
+2025-05-23T13:11:14.517715444Z stdout F /docker-entrypoint.sh: Launching /docker-entrypoint.d/30-tune-worker-processes.sh
+2025-05-23T13:11:14.519650996Z stdout F /docker-entrypoint.sh: Configuration complete; ready for start up
+2025-05-23T13:11:14.526850547Z stderr F 2025/05/23 13:11:14 [notice] 1#1: using the "epoll" event method
+2025-05-23T13:11:14.526883687Z stderr F 2025/05/23 13:11:14 [notice] 1#1: nginx/1.27.5
+2025-05-23T13:11:14.526887742Z stderr F 2025/05/23 13:11:14 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2025-05-23T13:11:14.526890644Z stderr F 2025/05/23 13:11:14 [notice] 1#1: OS: Linux 5.15.167.4-microsoft-standard-WSL2
+2025-05-23T13:11:14.526893487Z stderr F 2025/05/23 13:11:14 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2025-05-23T13:11:14.52689632Z stderr F 2025/05/23 13:11:14 [notice] 1#1: start worker processes
+2025-05-23T13:11:14.527096118Z stderr F 2025/05/23 13:11:14 [notice] 1#1: start worker process 33
+2025-05-23T13:11:14.527232113Z stderr F 2025/05/23 13:11:14 [notice] 1#1: start worker process 34
+2025-05-23T13:11:14.527428105Z stderr F 2025/05/23 13:11:14 [notice] 1#1: start worker process 35
+2025-05-23T13:11:14.527630706Z stderr F 2025/05/23 13:11:14 [notice] 1#1: start worker process 36
+2025-05-23T13:12:24.380145285Z stdout F 127.0.0.1 - - [23/May/2025:13:12:24 +0000] "GET / HTTP/1.1" 200 615 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36" "-"
+2025-05-23T13:12:31.20476876Z stderr F 2025/05/23 13:12:31 [error] 33#33: *1 open() "/usr/share/nginx/html/teste" failed (2: No such file or directory), client: 127.0.0.1, server: localhost, request: "GET /teste HTTP/1.1", host: "localhost:8080"
+2025-05-23T13:12:31.204829Z stdout F 127.0.0.1 - - [23/May/2025:13:12:31 +0000] "GET /teste HTTP/1.1" 404 555 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36" "-"
+2025-05-23T13:13:00.604252262Z stdout F 127.0.0.1 - - [23/May/2025:13:13:00 +0000] "GET /vamos HTTP/1.1" 404 555 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36" "-"
+2025-05-23T13:13:00.604256889Z stderr F 2025/05/23 13:13:00 [error] 33#33: *1 open() "/usr/share/nginx/html/vamos" failed (2: No such file or directory), client: 127.0.0.1, server: localhost, request: "GET /vamos HTTP/1.1", host: "localhost:8080"
