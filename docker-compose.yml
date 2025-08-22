@@ -1,0 +1,16 @@
+services:
+  # Aplicação principal Streamlit
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8501:8501"
+    environment:
+      - OPENAI_API_KEY=proj
+    models:
+      - llm
+
+models:
+  llm:
+    model: ai/gemma3

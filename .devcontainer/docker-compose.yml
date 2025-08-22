@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   app:
     build:
@@ -9,6 +7,13 @@ services:
     volumes:
       - ../:/app:cached
 
-    # Overrides default command so things don't shut down after the process ends.
+    # Mantém o container ativo
     command: sleep infinity
 
+    # Referência ao modelo
+    models:
+      - llm
+
+models:
+  llm:
+    model: ai/gemma3
