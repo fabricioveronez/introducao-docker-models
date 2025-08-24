@@ -3,16 +3,14 @@ services:
     build:
       context: ..
       dockerfile: .devcontainer/Dockerfile
-
     volumes:
       - ../:/app:cached
-
-    # Mantém o container ativo
     command: sleep infinity
+    environment:
+      - OPENAI_API_URL=http://model-runner.docker.internal/engines/v1
 
-    # Referência ao modelo
-    models:
-      - llm
+    # models:
+    #   - llm
 
 models:
   llm:

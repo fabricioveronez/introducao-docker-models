@@ -8,6 +8,7 @@ services:
       - "8501:8501"
     environment:
       - OPENAI_API_KEY=proj
+      - OPENAI_API_URL=http://model-runner.docker.internal/engines/v1
     models:
       - llm
 

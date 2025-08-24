@@ -10,6 +10,14 @@
             "request": "launch",
             "program": "src/index_analise.py",
             "console": "integratedTerminal"
+        },
+        {
+            "name": "Streamlit",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "streamlit",
+            "args": ["run", "src/app.py", "--server.address", "0.0.0.0", "--server.port", "8501", "--server.headless", "true"],
+            "console": "integratedTerminal"
         }
     ]
 }

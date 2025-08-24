@@ -27,14 +27,14 @@ def enviar_pergunta(pergunta):
 
 # Configuração da página
 st.set_page_config(
-    page_title="Chat com IA - Análise de Logs",
+    page_title="Chat com IA - Assistente Kubernetes",
     page_icon="🤖",
     layout="wide"
 )
 
 # Título da aplicação
-st.title("🤖 Chat com IA - Análise de Logs Kubernetes")
-st.markdown("Faça perguntas sobre Kubernetes, Docker e análise de logs!")
+st.title("🤖 Chat com IA - Assistente Kubernetes")
+st.markdown("Faça perguntas sobre Kubernetes, Docker e conceitos de containers!")
 
 # Inicializar histórico de conversas na sessão
 if "mensagens" not in st.session_state:
@@ -48,8 +48,8 @@ with st.sidebar:
     
     **Funcionalidades:**
     - Chat interativo com IA
-    - Especializado em Kubernetes
-    - Análise de logs e troubleshooting
+    - Especializado em Kubernetes e Docker
+    - Conceitos de orquestração de containers
     
     **Como usar:**
     1. Digite sua pergunta
@@ -128,8 +128,8 @@ if not st.session_state.mensagens:
             st.session_state.pergunta_sugerida = "O que é Kubernetes?"
             st.rerun()
         
-        if st.button("📊 Como analisar logs de erro?"):
-            st.session_state.pergunta_sugerida = "Como analisar logs de erro em aplicações containerizadas?"
+        if st.button("📦 O que são containers?"):
+            st.session_state.pergunta_sugerida = "O que são containers e como funcionam?"
             st.rerun()
     
     with col2:
@@ -137,8 +137,8 @@ if not st.session_state.mensagens:
             st.session_state.pergunta_sugerida = "Qual a diferença entre Docker e Kubernetes?"
             st.rerun()
         
-        if st.button("🚨 Troubleshooting em pods?"):
-            st.session_state.pergunta_sugerida = "Como fazer troubleshooting quando um pod não está funcionando?"
+        if st.button("⚙️ Como funciona um cluster?"):
+            st.session_state.pergunta_sugerida = "Como funciona um cluster Kubernetes?"
             st.rerun()
 
 # Processar pergunta sugerida se foi clicada

@@ -1,10 +1,11 @@
-# Análise de Logs com IA para Ambientes Kubernetes
+# Chat com IA - Assistente Kubernetes
 
 ## Visão Geral
 
-Este projeto utiliza modelos de linguagem natural (LLMs) para analisar logs de sistemas, especialmente em ambientes Kubernetes. Ele permite:
-- Interagir com um modelo de linguagem para perguntas gerais.
-- Analisar arquivos de log e obter respostas inteligentes sobre erros e eventos.
+Este projeto é um chat interativo com IA especializado em Kubernetes e Docker. Ele permite:
+- Interagir com um modelo de linguagem para perguntas sobre containers e orquestração
+- Aprender conceitos de Kubernetes, Docker e tecnologias de containers
+- Interface web amigável para conversação com modelo local de IA
 
 O projeto é preparado para rodar em ambiente isolado via DevContainer (Docker), facilitando o setup e a portabilidade.
 
@@ -14,14 +15,13 @@ O projeto é preparado para rodar em ambiente isolado via DevContainer (Docker),
 
 ```
 ├── src/
-│   ├── index.py                # Script principal de interação com LLM
-│   ├── index_analise.py        # Script de análise de logs com LLM
-│   ├── requirements.txt        # Dependências Python
-│   └── logs/                   # Exemplos de logs (nginx, controller-manager, etcd)
-├── .devcontainer/              # Configuração de ambiente Docker/VSCode
-│   ├── devcontainer.json
-│   ├── docker-compose.yml
-│   └── Dockerfile
+│   ├── app.py                  # Interface Streamlit para chat com IA
+│   ├── index.py                # Script CLI básico de interação
+│   ├── model/
+│   │   └── chat.py             # Configuração do modelo de IA
+│   └── requirements.txt        # Dependências Python
+├── docker-compose.yml          # Configuração dos serviços
+├── Dockerfile                  # Imagem da aplicação
 └── .vscode/                    # Configurações do VSCode
 ```
 
@@ -70,26 +70,19 @@ Antes de executar as análises, é necessário baixar o modelo de IA:
 docker model pull ai/gemma3:latest
 ```
 
-### 1. Interação com o Modelo de Linguagem
+### 1. Interface Web Streamlit (Recomendado)
+Execute:
+```bash
+streamlit run src/app.py
+```
+Isso irá abrir uma interface web onde você pode conversar com a IA sobre Kubernetes e Docker.
+
+### 2. Script CLI Básico
 Execute:
 ```bash
 python src/index.py
 ```
-Isso enviará uma pergunta ao modelo e exibirá a resposta.
-
-### 2. Análise de Logs
-Execute:
-```bash
-python src/index_analise.py
-```
-O script irá ler o arquivo `src/logs/nginx.log`, enviar o conteúdo para o modelo e retornar uma análise dos principais erros encontrados.
-
-#### Exemplo de log analisado:
-```
-2025-05-23T13:12:31.20476876Z stderr F 2025/05/23 13:12:31 [error] 33#33: *1 open() "/usr/share/nginx/html/teste" failed (2: No such file or directory), client: 127.0.0.1, server: localhost, request: "GET /teste HTTP/1.1", host: "localhost:8080"
-```
-
-Você pode substituir o arquivo de log por outros exemplos em `src/logs/`.
+Isso enviará uma pergunta padrão ao modelo via linha de comando.
 
 ---
 
@@ -104,9 +97,10 @@ OPENAI_API_KEY=sk-xxxxxx
 ---
 
 ## Observações
-- O endpoint do modelo pode ser ajustado em `index.py` e `index_analise.py` (ex: `base_url`).
-- O projeto é facilmente extensível para outros tipos de logs ou perguntas.
-- Os logs de exemplo são reais de ambientes Docker/Kubernetes.
+- O endpoint do modelo pode ser ajustado em `src/model/chat.py` (ex: `base_url`)
+- O projeto utiliza Docker Models para execução local do modelo de IA
+- Interface otimizada para aprendizado de conceitos de containers e orquestração
+- Modelo roda localmente garantindo privacidade dos dados
 
 ---
 
